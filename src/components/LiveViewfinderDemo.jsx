@@ -180,3 +180,4 @@ export default function LiveViewfinderDemo() {
     </div>
   );
 }
+

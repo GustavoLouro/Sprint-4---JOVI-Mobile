@@ -187,3 +187,4 @@ export default function Navbar({ isMuted, setIsMuted, onOpenStudio }) {
     </header>
   );
 }
+

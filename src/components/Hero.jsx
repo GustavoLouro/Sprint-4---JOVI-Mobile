@@ -185,3 +185,4 @@ export default function Hero({ onOpenScanner }) {
     </section>
   );
 }
+

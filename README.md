@@ -137,7 +137,6 @@ landing-page/
 │   ├── App.jsx                 # Componente raiz que orquestra a aplicação
 │   ├── main.jsx                # Ponto de entrada do React
 │   └── index.css               # Diretivas do Tailwind CSS e estilos 3D
-├── legacy-sprint-3/            # Backup preservado da Sprint 03 (HTML/CSS/JS)
 ├── INTEGRANTES.TXT             # Identificação obrigatória do grupo (nomes e RMs)
 ├── README.md                   # Esta documentação completa do projeto
 ├── package.json                # Configuração de scripts e dependências npm
