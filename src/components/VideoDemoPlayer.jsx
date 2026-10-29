@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Play, Pause, Maximize, Shield, Sparkles, CheckCircle2, RotateCcw } from 'lucide-react';
+import { Play, Pause, Maximize, Shield } from 'lucide-react';
 import { soundEffects } from '../utils/audio';
 
 export default function VideoDemoPlayer() {
@@ -94,52 +94,32 @@ export default function VideoDemoPlayer() {
   const progressPercentage = duration > 0 ? (currentTime / duration) * 100 : 0;
 
   return (
-    <section id="demonstracao" className="py-24 relative overflow-hidden bg-[#070b14]/70 border-y border-white/5">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+    <section id="demonstracao" className="py-20 relative bg-[#090e18] border-y border-slate-800/80">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-14">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-300 text-xs font-mono mb-4">
-            <Play className="w-3.5 h-3.5 text-cyan-400" />
-            <span>VÍDEO DA DEMONSTRAÇÃO</span>
-          </div>
-          <h2 className="text-3xl sm:text-4xl font-display font-extrabold text-white tracking-tight">
-            Veja o Jovi escaneando a lousa em <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-indigo-400">tempo real</span>
+        {/* Header */}
+        <div className="text-center max-w-3xl mx-auto mb-12">
+          <span className="text-xs font-mono font-semibold text-indigo-400 uppercase tracking-wider">
+            Demonstração Prática
+          </span>
+          <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight mt-1">
+            Vídeo gravado em sala de aula
           </h2>
-          <p className="mt-4 text-slate-300 text-base leading-relaxed">
-            Assista ao fluxo completo: o universitário aponta o smartphone para a lousa com equações de cálculo, o algoritmo suprime sombras e reflexos e envia as anotações para o Gemini.
+          <p className="mt-3 text-slate-300 text-sm sm:text-base leading-relaxed">
+            Veja a gravação real feita na carteira de aula mostrando o enquadramento da lousa de cálculo e a aplicação do filtro anti-sombra.
           </p>
         </div>
 
-        {/* Video Player Container */}
-        <div className="max-w-4xl mx-auto mb-16">
+        {/* Video Player */}
+        <div className="max-w-3xl mx-auto mb-10">
           <div
             ref={playerContainerRef}
-            className="relative rounded-3xl overflow-hidden bg-black border border-white/10 shadow-2xl group"
+            className="rounded-xl overflow-hidden bg-black border border-slate-800 shadow-2xl"
           >
-            {/* Topbar HUD */}
-            <div className="absolute top-0 inset-x-0 z-30 p-4 bg-gradient-to-b from-black/80 via-black/40 to-transparent flex items-center justify-between pointer-events-none">
-              <div className="flex items-center gap-2">
-                <span className="w-2.5 h-2.5 rounded-full bg-red-500 animate-pulse"></span>
-                <span className="text-[11px] font-mono text-white tracking-wider">
-                  GRAVAÇÃO EM SALA DE AULA · 1080P 60FPS
-                </span>
-              </div>
-              <div className="flex items-center gap-2">
-                <span className="text-[10px] font-mono bg-indigo-600/60 border border-indigo-400/40 text-cyan-300 px-2 py-0.5 rounded-full flex items-center gap-1">
-                  <Sparkles className="w-3 h-3" />
-                  <span>Gemini Vision Ativo</span>
-                </span>
-                <span className="text-[10px] font-mono bg-slate-800 text-slate-300 px-2 py-0.5 rounded">
-                  4K HDR
-                </span>
-              </div>
-            </div>
-
-            {/* Video Element */}
+            {/* Screen */}
             <div
               onClick={togglePlay}
-              className="relative aspect-video w-full cursor-pointer overflow-hidden flex items-center justify-center bg-black"
+              className="relative aspect-video w-full cursor-pointer flex items-center justify-center bg-black"
             >
               <video
                 ref={videoRef}
@@ -147,45 +127,43 @@ export default function VideoDemoPlayer() {
                 loop
                 muted
                 poster="/assets/images/student-chalkboard-video-cover.jpg"
-                className="w-full h-full object-cover transition-all duration-300"
+                className="w-full h-full object-cover"
                 style={{
-                  filter: isAntiShadowActive ? 'none' : 'brightness(0.7) contrast(0.85) grayscale(20%)'
+                  filter: isAntiShadowActive ? 'none' : 'brightness(0.75) contrast(0.85) grayscale(15%)'
                 }}
               >
                 <source src="/assets/videos/video-demo.mp4" type="video/mp4" />
                 Seu navegador não suporta vídeos HTML5.
               </video>
 
-              {/* Center Play Button Overlay */}
               {!isPlaying && (
-                <div className="absolute w-20 h-20 rounded-full bg-indigo-600/90 text-white flex items-center justify-center shadow-2xl backdrop-blur-sm border border-white/30 hover:scale-110 active:scale-95 transition-transform z-20">
-                  <Play className="w-8 h-8 fill-white ml-1" />
+                <div className="absolute w-14 h-14 rounded-full bg-indigo-600/90 text-white flex items-center justify-center shadow-lg hover:scale-105 transition-transform">
+                  <Play className="w-6 h-6 fill-white ml-0.5" />
                 </div>
               )}
             </div>
 
-            {/* Bottom Controls Bar */}
-            <div className="bg-slate-950/95 backdrop-blur-md px-5 py-3 border-t border-white/10 space-y-2">
+            {/* Controls Bar */}
+            <div className="bg-slate-950 px-4 py-2.5 border-t border-slate-800 space-y-2">
               
-              {/* Timeline Scrubber */}
+              {/* Scrub line */}
               <div
                 ref={timelineRef}
                 onClick={handleTimelineClick}
-                className="relative h-2 bg-slate-800 rounded-full cursor-pointer group/timeline overflow-hidden"
+                className="relative h-1.5 bg-slate-800 rounded-full cursor-pointer overflow-hidden"
               >
                 <div
-                  className="h-full bg-gradient-to-r from-indigo-500 to-cyan-400 rounded-full relative transition-all duration-100"
+                  className="h-full bg-indigo-500 rounded-full transition-all duration-100"
                   style={{ width: `${progressPercentage}%` }}
                 />
               </div>
 
-              {/* Controls Row */}
-              <div className="flex items-center justify-between text-xs text-slate-300 pt-1">
-                <div className="flex items-center gap-3">
+              {/* Controls */}
+              <div className="flex items-center justify-between text-xs text-slate-300 pt-0.5">
+                <div className="flex items-center gap-2.5">
                   <button
                     onClick={togglePlay}
-                    className="p-1.5 rounded-lg hover:bg-slate-800 text-white transition-colors"
-                    aria-label={isPlaying ? 'Pausar vídeo' : 'Reproduzir vídeo'}
+                    className="p-1 rounded hover:bg-slate-800 text-white"
                   >
                     {isPlaying ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4 fill-white" />}
                   </button>
@@ -194,25 +172,23 @@ export default function VideoDemoPlayer() {
                   </span>
                 </div>
 
-                <div className="flex items-center gap-3">
-                  {/* Anti-Shadow Toggle */}
+                <div className="flex items-center gap-2">
                   <button
                     onClick={toggleAntiShadow}
-                    className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-mono transition-all border ${
+                    className={`inline-flex items-center gap-1 px-2.5 py-1 rounded text-xs transition-colors border ${
                       isAntiShadowActive
-                        ? 'bg-cyan-500/20 text-cyan-300 border-cyan-400/40 shadow-sm'
-                        : 'bg-slate-800 text-slate-400 border-white/5'
+                        ? 'bg-indigo-600/20 text-indigo-300 border-indigo-500/40'
+                        : 'bg-slate-900 text-slate-400 border-slate-800'
                     }`}
                   >
                     <Shield className="w-3.5 h-3.5" />
-                    <span>{isAntiShadowActive ? 'Anti-Sombra: LIGADO' : 'Anti-Sombra: DESLIGADO'}</span>
+                    <span>{isAntiShadowActive ? 'Anti-Sombra: Ativo' : 'Anti-Sombra: Desligado'}</span>
                   </button>
 
-                  {/* Fullscreen Button */}
                   <button
                     onClick={handleFullscreen}
-                    className="p-1.5 rounded-lg hover:bg-slate-800 text-white transition-colors"
-                    aria-label="Alternar tela cheia"
+                    className="p-1 rounded hover:bg-slate-800 text-white"
+                    aria-label="Tela cheia"
                   >
                     <Maximize className="w-4 h-4" />
                   </button>
@@ -220,50 +196,26 @@ export default function VideoDemoPlayer() {
               </div>
 
             </div>
-
           </div>
         </div>
 
-        {/* 3 Step Breakdown Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-          
-          <div className="p-6 rounded-2xl bg-slate-900/60 border border-white/10 hover:border-cyan-500/30 transition-all">
-            <div className="inline-flex items-center gap-2 text-xs font-mono text-cyan-400 bg-cyan-500/10 px-2.5 py-1 rounded-lg mb-4">
-              Passo 01
-            </div>
-            <div className="text-2xl mb-2">🎯</div>
-            <h3 className="text-base font-bold text-white mb-2">Detecção Inteligente do Quadro</h3>
-            <p className="text-xs text-slate-400 leading-relaxed">
-              O estudante enquadra a lousa de qualquer carteira da sala. O algoritmo calcula a perspectiva angular e foca no conteúdo em milissegundos.
-            </p>
+        {/* 3 Steps in practical terms */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl mx-auto text-xs">
+          <div className="p-4 rounded bg-slate-900 border border-slate-800">
+            <span className="font-semibold text-white block mb-1">Passo 1: Enquadramento</span>
+            <p className="text-slate-400">O aluno aponta a câmera da carteira. O sistema ajusta a perspectiva angular do quadro.</p>
           </div>
-
-          <div className="p-6 rounded-2xl bg-slate-900/60 border border-white/10 hover:border-indigo-500/30 transition-all">
-            <div className="inline-flex items-center gap-2 text-xs font-mono text-indigo-400 bg-indigo-500/10 px-2.5 py-1 rounded-lg mb-4">
-              Passo 02
-            </div>
-            <div className="text-2xl mb-2">⚡</div>
-            <h3 className="text-base font-bold text-white mb-2">Filtro Anti-Sombra &amp; Clareamento</h3>
-            <p className="text-xs text-slate-400 leading-relaxed">
-              A sombra do estudante ou da mão é eliminada em tempo real, preservando 100% da nitidez do giz e das canetas coloridas de quadro branco.
-            </p>
+          <div className="p-4 rounded bg-slate-900 border border-slate-800">
+            <span className="font-semibold text-white block mb-1">Passo 2: Supressão da Sombra</span>
+            <p className="text-slate-400">A mancha escura da iluminação de fundo é equalizada, restaurando a nitidez do giz.</p>
           </div>
-
-          <div className="p-6 rounded-2xl bg-slate-900/60 border border-white/10 hover:border-purple-500/30 transition-all">
-            <div className="inline-flex items-center gap-2 text-xs font-mono text-purple-400 bg-purple-500/10 px-2.5 py-1 rounded-lg mb-4">
-              Passo 03
-            </div>
-            <div className="text-2xl mb-2">🧠</div>
-            <h3 className="text-base font-bold text-white mb-2">Extração com Gemini Vision</h3>
-            <p className="text-xs text-slate-400 leading-relaxed">
-              Reconhecimento semântico de equações integrais, diagramas e termos da aula, gerando automaticamente flashcards para estudo no app.
-            </p>
+          <div className="p-4 rounded bg-slate-900 border border-slate-800">
+            <span className="font-semibold text-white block mb-1">Passo 3: Geração dos Cards</span>
+            <p className="text-slate-400">As fórmulas e definições são categorizadas na pasta da matéria no caderno digital.</p>
           </div>
-
         </div>
 
       </div>
     </section>
   );
 }
-

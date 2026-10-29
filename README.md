@@ -6,31 +6,31 @@
 ---
 
 ## 📌 Sobre a Solução
-O **Jovi Study Hub** é uma solução inteligente desenvolvida para sanar uma das maiores dores dos estudantes universitários: fotos de lousa escuras, com sombras do próprio aluno cobrindo fórmulas matemáticas e perdidas no rolo da câmera.
+O **Jovi Study Hub** é uma aplicação web desenvolvida para resolver um problema recorrente de alunos universitários: fotos de lousa que ficam escuras ou com sombras do próprio aluno cobrindo fórmulas e resoluções passadas pelo professor.
 
-A solução une um **Live Viewfinder com 10 AI Effects fotográficos** a um algoritmo de **equalização e supressão de sombras** e ao poder multimodal do **Google Gemini Vision**, transformando a foto do quadro em:
-1. **Resumos Estruturados de Aula** com destaque de fórmulas e equações;
-2. **Decks de Flashcards Ativos** com animação 3D de flip e repetição espaçada;
-3. **Mapas Mentais Dinâmicos** com conexões conceituais em árvore;
-4. **Chat com a Lousa (Jovi Copilot)** para tirar dúvidas instantâneas antes das avaliações.
+A aplicação equaliza a iluminação das fotos da lousa e organiza as anotações em materiais práticos de estudo:
+1. **Resumos de Aula Formatados:** Transcrição das fórmulas com destaque de propriedades essenciais.
+2. **Flashcards Ativos:** Decks com virada 3D e contagem de acertos para fixação rápida do conteúdo.
+3. **Mapa Conceitual de Tópicos:** Visualização em árvore com definições e teoremas interligados.
+4. **Assistente de Dúvidas:** Chat para tirar dúvidas rápidas sobre a matéria da aula.
 
 ---
 
 ## 🚀 Evolução da Sprint 03 para a Sprint 04
-Nesta Sprint 04, a Landing Page desenvolvida na Sprint 03 foi **completamente evoluída e refatorada**, integrando-se ao ecossistema moderno do **React** e **Tailwind CSS**, mantendo a identidade visual e a solução da Challenge com recursos interativos de alto nível:
+Nesta Sprint 04, a Landing Page desenvolvida na Sprint 03 foi **evoluída e integrada ao ecossistema moderno do React + Tailwind CSS**, atendendo à entrega conjunta das disciplinas de **Front-End Design** e **Web Development**:
 
-* ⚛️ **Migração Completa para React 18 + Vite:** Arquitetura componentizada, modular, performática e tipada.
-* 🎨 **Estilização com Tailwind CSS:** Design system profissional em Dark Mode (`#060911`), micro-bordas translúcidas, glassmorphism e responsividade fluida em Mobile, Tablet e Desktop.
-* ⚡ **Simulador Interativo Anti-Sombra (Novo):** Slider dinâmico arrastável *Before/After* com comparativo de fotos reais de lousas (Cálculo I e Engenharia de Software) e telemetria de luminância.
-* 🧠 **AI Study Studio Integrado (Novo):**
-  * Deck de flashcards com animação 3D de giro (flip), contador de acertos, pontuação e efeito de confetes (`canvas-confetti`);
-  * Resumo executivo da aula com exportação em Markdown;
-  * Mapa mental navegável com inspeção de nós conceituais;
-  * Chat simulador do Gemini Vision Copilot com sugestões de prompts de estudo.
-* 📸 **Simulador de Live Viewfinder com 10 AI Effects (Novo):** Permite ao usuário experimentar os 10 estilos fotográficos do obturador (Anti-Sombra, Night Vision, Chalkboard Mono, Blueprint, Anime Boost, etc.) com zoom óptico (1×, 2×, 3×).
-* 🎬 **Player de Vídeo Customizado:** Controles reativos de timeline, alternador do filtro anti-sombra em pós-processamento e modo tela cheia.
-* 📬 **Formulário Reativo com Validação em Tempo Real:** Validação de campos obrigatórios, contagem de caracteres e feedback com toast de confirmação.
-* 🔊 **Feedback Sonoro Tátil (Web Audio API):** Efeitos sutis de clique, obturador e virada de card sintetizados diretamente no navegador, com botão para silenciar a qualquer momento.
+* ⚛️ **Integração com React 18 e Vite:** Componentização modular, navegação fluida e renderização reativa sem recarregamento de página.
+* 🎨 **Estilização com Tailwind CSS:** Design limpo em Dark Mode, responsividade para Mobile, Tablet e Desktop com tipografia balanceada e classes utilitárias.
+* ⚡ **Comparador Antes / Depois Interativo:** Slider que permite comparar a foto bruta com sombra e o resultado após a equalização de contraste.
+* 🧠 **Estúdio de Estudo:**
+  * Flashcards com virada 3D, contagem de acertos e revisão;
+  * Resumo executivo com botão de cópia rápida em Markdown;
+  * Mapa de tópicos conceituais navegável;
+  * Assistente de dúvidas com exemplos e resolução passo a passo.
+* 📸 **Simulador de Câmera em Aula:** Modos de contraste para lousa de giz, quadro branco ou sala com projetor, com controles de zoom (1×, 2×, 3×).
+* 🎬 **Player de Vídeo Integrado:** Exibição da gravação feita em aula com controles próprios e alternador do filtro anti-sombra.
+* 📬 **Formulário de Contato com Validação:** Validação de campos obrigatórios e formato de e-mail em tempo real.
+* 🔊 **Feedback Sonoro Opcional:** Micro-interações de clique e virada de card sintetizadas no navegador (com botão para silenciar a qualquer momento).
 
 ---
 
