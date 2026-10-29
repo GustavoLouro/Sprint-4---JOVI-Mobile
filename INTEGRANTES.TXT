@@ -1,0 +1,14 @@
+CHALLENGE JOVI + FIAP 2026
+Jovi Study Hub - Landing Page & Web Application
+Sprint 4 - Entrega Conjunta: Front-End Design & Web Development
+FIAP - Engenharia de Software (2o Semestre)
+
+INTEGRANTES DO GRUPO
+
+Nome completo                          RM
+-------------------------------------  --------
+Joao Pedro Maschion da Cruz Sa         570509
+Gustavo Rezende Louro                  570708
+Joao Pedro Lagonegro Bosco e Silva     569444
+Raul Azzi Corsi                        569022
+Lucas Henrique Alves da Silva          572216
